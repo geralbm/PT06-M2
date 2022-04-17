@@ -1,0 +1,6 @@
+•	DOM: Document Object Model
+Es una representación en una estructura de datos en forma de árbol, de la página de HTML parseada.
+
+•	DOM element selectors: Son los elementos por los cuales se representan a través de las etiquetas en el HTML y en el parseo se detecta cada nodo y sus respectivos hijos. 
+
+•	DOM events: En JavaScript para registrar diferentes controladores de eventos de elementos en un documento HTML. Los eventos se utilizan normalmente en combinación con las funciones y la función no se ejecutarán antes de que ocurra el evento

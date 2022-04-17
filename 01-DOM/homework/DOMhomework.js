@@ -1,12 +1,15 @@
 // Crear un array vacío llamado 'toDoItems'
 // Tu codigo acá:
-
+let toDoItems=[];
 
 // En la página 'index.html' hay un elemento span cuyo texto es 'Aplicación creada por:'.
 // Usando querySelector seleccionar dicho span por su id ('createdBy') y luego usando innerHTML
 // agregar tu nombre al final del texto actual. Ej: 'Aplicación creada por Franco'
 // Tu código acá:
 
+let spanTitle = document.querySelector ('#createdBy'); //me traigo el span pedido.
+//Accedo al texto de span
+spanTitle.innerHTML = spanTitle.innerHTML + 'Geraldina'
 
 
 // Crear una clase denominada 'ToDo' cuyo constructor debe recibir un único parámetro del tipo string
@@ -16,11 +19,13 @@
 // 2) 'complete'    : debe setearse en false
 // Ayuda: usar 'this' en el constructor
 
-function ToDo () {
+function ToDo (description) {
   // Tu código acá:
-
-}
-
+      //Constructor:
+      this.description = description;
+      this.complete = false;
+    
+  }
 
 // Agregar un método denominado 'completeToDo' al prototipo de la clase ToDo
 // No requiere ningún argumento
@@ -28,6 +33,12 @@ function ToDo () {
 
 // Tu código acá:
 
+//Me paro en la clase
+ToDo.prototype.completeToDo = function() {
+
+  this.complete = true;
+
+}
 
 
 // Agregar dos parámetros a la función 'buildToDo':
@@ -51,6 +62,30 @@ function ToDo () {
 function buildToDo(todo, index) {
   // Tu código acá:
 
+//Para una sola tarea: 
+//Se genra la estructura HTML:
+  //1-Creo un div
+  let toDoShell = document.createElement('div');
+  //2- Add una  clase a todoShell
+  toDoShell.className = 'toDoShell';
+  //3- Creo un span - no tiene valor asigando
+  let toDoText = document.createElement ('span');
+  //4- Setear el valor a toDoText
+  toDoText.innerText = todo.description;
+  //5-
+  toDoText.id = index;
+  //6-
+  if (todo.complete){
+    toDoText.className = 'completeText'; 
+  }
+  //7- Add hijo
+  toDoShell.append(toDoText);
+  toDoText.addEventListener ('click',completeToDo);
+  //8- Retornar toDoShell
+  return toDoShell
+  
+
+
 }
 
 // La función 'buildToDos' debe crear un array de objetos toDo y devolverlo
@@ -61,6 +96,11 @@ function buildToDo(todo, index) {
 function buildToDos(toDos) {
   // Tu código acá:
 
+ //Para todas las tareas: toDos = [{...},{...},{...}]
+ 
+ let toDosBuilded = toDos.map (buildToDo)
+
+ return toDosBuilded;
 }
 
 
@@ -75,6 +115,13 @@ function buildToDos(toDos) {
 
 function displayToDos() {
   // Tu código acá:
+  let toDoContainer = document.getElementById ('toDoContainer');
+  toDoContainer.innerHTML ='';
+  let buildedToDos = buildToDos (toDoItems);
+  for (let i=0; i<buildedToDos.length;i++ ){
+     //elemento html que tiene un div, spam y ese spam tiene la descripcion del ToDo => lo agrego a ToDo container
+     toDoContainer.append(buildedToDos[i]);
+  }
 
 }
 
@@ -90,6 +137,14 @@ function displayToDos() {
 
 function addToDo() {
   // Tu código acá:
+  //Tomo el elemento ToDoInput
+ let toDoInput = document.querySelector('#toDoInput');
+ //Creo nueva instancia ToDo
+ let newToDo = new ToDo (toDoInput.value);
+ toDoItems.push (newToDo);
+ toDoInput.value = '';
+ //Actualizar la parte visual
+ displayToDos();
 
 }
 
@@ -99,6 +154,9 @@ function addToDo() {
 //   2) Agregarle un 'click' event listener, pasándole la función 'addToDo' como callback
 
 // Tu código acá:
+let btnAdd = document.querySelector ('#addButton');
+//add Evento
+btnAdd.addEventListener('click',addToDo);
 
 
 // La función completeToDo se va a ejecutar cuando queramos completar un todo
@@ -115,9 +173,10 @@ function addToDo() {
 
 function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
-  // const index = event.target.id;
+  const index = event.target.id;
   // Tu código acá:
-
+  toDoItems[index].completeToDo();
+  displayToDos();
 }
 
 // Una vez que llegaste a este punto verificá que todos los tests pasen
@@ -137,7 +196,7 @@ function completeToDo(event) {
 
 
 // Acá debes insertar la llamada a 'displayToDos'
-
+displayToDos();
 
 // ---------------------------- NO CAMBIES NADA DE ACÁ PARA ABAJO ----------------------------- //
 if (typeof module !== 'undefined') {
