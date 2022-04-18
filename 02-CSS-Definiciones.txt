@@ -1,0 +1,9 @@
+•	Framework:
+Es un marco de trabajo que posee herramientas ya armadas que facilitan el desarrollo de aplicaciones. Brinda ayuda y guías para el desarrollo. Posee un conjunto de estilos en donde estos se pueden combinar. Ejemplo: Boostrap.
+
+•	Preprocesador:
+Un preprocesador CSS es un programa que te permite generar CSS a partir de la sintaxis única del preprocesador. Existen varios preprocesadores CSS de los cuales escoger, sin embargo la mayoría de preprocesadores CSS añadirán algunas características que no existen en CSS puro, como variable, mixins, selectores anidados, entre otros. Estas características hacen la estructura de CSS más legible y fácil de mantener.
+
+•	Responsive website:
+Cuando queremos que nuestra página se vea 'linda' en cualquier dispositivo o cambie algunas características ya sea en una computadora, en un teléfono celular, en una tablet o incluso en un televisor smart, necesitamos hacer algunos ajustes a las propiedades de los elementos en función del dispositivo.
+

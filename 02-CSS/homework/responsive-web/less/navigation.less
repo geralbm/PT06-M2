@@ -1,1 +1,28 @@
 // Código de Nav acá
+nav {
+    //Otra forma => .flex(@direction:column,@align: center);
+    .flex(column,center,center);
+    background-color:@nav-bg ;
+
+
+ul{
+    
+    .flex(row,space-around, center);
+    //hay que darle ancho para que aplique justify
+    width: 35%;
+    margin:10px;
+    
+    //Mobile: Ajustar el menu.
+    @media (max-width:@phone){
+        width: 80%;
+    }
+}
+
+a{
+    white-space: nowrap;
+    text-decoration: none;
+    color: @nav-font;
+    font-weight: bold;
+}
+
+}

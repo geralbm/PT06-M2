@@ -49,7 +49,8 @@ A partir de una paǵina que simula una noticia sobre _Música 8D_ es necesario t
 
 #### Formato Desktop
 
-* Agregar el viewport meta tag dentro del head del archivo index.html
+* Agregar el viewport meta 
+tag dentro del head del archivo index.html
 
 * Observar cómo debe quedar el [diseño final para Desktop](responsive-web/diseño/home-desktop.png). Es necesario crear la barra de navegación y la imagen del header que están faltando. En el archivo `index.html` se indica en que partes debe ir cada uno
 
