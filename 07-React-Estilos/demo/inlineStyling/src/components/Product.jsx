@@ -12,6 +12,7 @@ const pStyle = {
 function Product(props) {
   return (
     <div style={divStyle}>
+      <h1>h1</h1>
       <h3>{props.title}</h3>
       <p style={pStyle}>{props.price}</p>
     </div>
